@@ -121,3 +121,37 @@
     @apply bg-background text-foreground;
   }
 }
+
+.slick-dots {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  bottom: 10px; /* adjust spacing if needed */
+}
+
+/* Default dot style */
+.slick-dots li {
+  margin: 0 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Default dot style */
+.slick-dots li button:before {
+  font-size: 12px;
+  color: #bbb; /* default dot color */
+  opacity: 1; /* ensure visibility */
+}
+
+/* Active dot style */
+.slick-dots li.slick-active button:before {
+  color: #191cdd; /* active dot color */
+  width: 20px; /* adjust width */
+  height: 8px; /* optional height */
+  border-radius: 4px; /* optional rounded edges */
+  background-color: #191cdd;
+  content: "";
+  display: inline-block;
+  margin-top: 0.2rem;
+}

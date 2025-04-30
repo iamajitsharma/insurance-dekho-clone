@@ -31,48 +31,48 @@ const FeaturedProducts = () => {
       id: uuid(),
       title: "Health",
       type: "Insurance",
-      icon: "/icon/v2_icon_car.svg",
+      icon: "/icon/v2_icon_health.svg",
       badge: "Upto 25% Off*",
     },
     {
       id: uuid(),
       title: "Term",
       type: "Insurance",
-      icon: "/icon/v2_icon_car.svg",
+      icon: "/icon/v2_icon_life.svg",
       badge: "Save on tax*",
     },
     {
       id: uuid(),
       title: "Investment",
       type: "Plans",
-      icon: "/icon/v2_icon_car.svg",
+      icon: "/icon/v2_icon_investment.svg",
       badge: "",
     },
     {
       id: uuid(),
       title: "Business",
       type: "Insurance",
-      icon: "/icon/v2_icon_car.svg",
+      icon: "/icon/business_insurance.svg",
       badge: "New",
     },
     {
       id: uuid(),
       title: "Family Health",
       type: "Insurance",
-      icon: "/icon/v2_icon_car.svg",
+      icon: "/icon/v2_icon_family.svg",
       badge: "",
     },
     {
       id: uuid(),
       title: "Guaranteed",
       type: "Return Plans",
-      icon: "/icon/v2_icon_car.svg",
+      icon: "/icon/v2_icon_guaranteeReturn.svg",
       badge: "",
     },
   ];
 
   return (
-    <div className="mx-auto max-w-6xl w-full p-6 rounded-4xl bg-white shadow">
+    <div className="mx-auto max-w-6xl w-full p-6 rounded-4xl bg-white shadow my-4">
       <div className="grid grid-cols-5 gap-y-4">
         {products.map((item: ProductProps) => (
           <div
