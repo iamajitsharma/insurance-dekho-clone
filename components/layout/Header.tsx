@@ -1,5 +1,6 @@
+"use client";
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Button } from "../ui/button";
 import { v4 as uuid } from "uuid";
 import {
@@ -24,6 +25,25 @@ interface NavLinksProps extends MenuItemProps {
 }
 
 const Header = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      if (scrollPosition >= 90) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  });
+
   const navLinks: NavLinksProps[] = [
     {
       id: uuid(),
@@ -228,81 +248,97 @@ const Header = () => {
   ];
 
   return (
-    <header className="flex items-center justify-between w-full bg-white py-4 px-6">
-      <Link href="/" className="mt-1">
-        <Image
-          src="/logo.svg"
-          alt="logo"
-          width={200}
-          height={200}
-          className="w-48 h-auto"
-        />
-      </Link>
+    <header
+      className={`w-full py-5 px-5 sticky top-0 overflow-hidden ease-in-out duration-300 ${
+        isScrolled ? "bg-white z-50 shadow-md" : ""
+      }`}
+    >
+      <div className="flex items-center justify-between h-fit">
+        <Link href="/" className="mt-1.5 w-[200px] h-auto">
+          <Image
+            src="/logo.svg"
+            alt="logo"
+            width={200}
+            height={200}
+            className="w-full h-full"
+          />
+        </Link>
 
-      <div className="flex flex-col md:flex-row items-center gap-1.5">
-        {navLinks.map((item) => {
-          if (item.children.length > 0) {
-            return (
-              <DropdownMenu key={item.id}>
-                <DropdownMenuTrigger asChild>
+        <div className="flex flex-col md:flex-row items-center gap-1.5">
+          {navLinks.map((item) => {
+            if (item.children.length > 0) {
+              return (
+                <DropdownMenu key={item.id}>
+                  <DropdownMenuTrigger asChild>
+                    <Button
+                      variant="ghost"
+                      className="text-[15px] font-semibold text-gray-700 focus-visible:ring-0 cursor-pointer"
+                    >
+                      {item.title}
+                      {/* <ChevronDown size={18} className="ml-1" /> */}
+                      <Image
+                        src="/icon/downarrow.svg"
+                        alt="down arrow"
+                        width={8}
+                        height={8}
+                      />
+                    </Button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent className="w-72" align="start">
+                    <ScrollArea className="h-72">
+                      {item.children.map((child) => (
+                        <DropdownMenuItem
+                          key={child.id}
+                          asChild
+                          className="my-3"
+                        >
+                          <Link
+                            href={child.url}
+                            className="cursor-pointer text-sm"
+                          >
+                            {child.icon && (
+                              <Image
+                                src={child.icon}
+                                alt={child.title}
+                                width={20}
+                                height={20}
+                                className="mr-2"
+                              />
+                            )}
+                            {child.title === "Call Us" ? (
+                              <div>
+                                <span className="text-xs">{child.title}</span>
+                                <p>75111175111</p>
+                              </div>
+                            ) : (
+                              child.title
+                            )}
+                          </Link>
+                        </DropdownMenuItem>
+                      ))}
+                    </ScrollArea>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              );
+            } else {
+              return (
+                <Link key={item.id} href={item.url}>
                   <Button
                     variant="ghost"
-                    className="text-[15px] font-semibold text-gray-700 focus-visible:ring-0 cursor-pointer"
+                    className="text-[15px] font-semibold text-gray-700"
                   >
                     {item.title}
-                    <ChevronDown size={18} className="ml-1" />
                   </Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent className="w-72" align="start">
-                  <ScrollArea className="h-72">
-                    {item.children.map((child) => (
-                      <DropdownMenuItem key={child.id} asChild className="my-3">
-                        <Link
-                          href={child.url}
-                          className="cursor-pointer text-sm"
-                        >
-                          {child.icon && (
-                            <Image
-                              src={child.icon}
-                              alt={child.title}
-                              width={20}
-                              height={20}
-                              className="mr-2"
-                            />
-                          )}
-                          {child.title === "Call Us" ? (
-                            <div>
-                              <span className="text-xs">{child.title}</span>
-                              <p>75111175111</p>
-                            </div>
-                          ) : (
-                            child.title
-                          )}
-                        </Link>
-                      </DropdownMenuItem>
-                    ))}
-                  </ScrollArea>
-                </DropdownMenuContent>
-              </DropdownMenu>
-            );
-          } else {
-            return (
-              <Link key={item.id} href={item.url}>
-                <Button
-                  variant="ghost"
-                  className="text-[15px] font-semibold text-gray-700"
-                >
-                  {item.title}
-                </Button>
-              </Link>
-            );
-          }
-        })}
-      </div>
+                </Link>
+              );
+            }
+          })}
+        </div>
 
-      <div className="flex items-center gap-4">
-        <p className="text-xs text-neutral-500">Track & Policy Download</p>
-        <Button className="bg-[#f34653]">Login</Button>
+        <div className="flex items-center gap-3">
+          <p className="text-[10px] text-gray-700">Track & Policy Download</p>
+          <Button size={"sm"}>Login</Button>
+        </div>
       </div>
     </header>
   );

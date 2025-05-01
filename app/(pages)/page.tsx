@@ -1,12 +1,21 @@
 import HomeBanner from "./components/HomeBaner";
 import FeaturedProducts from "./components/FeaturedProducts";
+import Testimonials, {
+  TestimonialCard,
+} from "@/components/common/Testimonials";
+import HowInsuranceWork from "./components/HowInsuranceWork";
+import OurPartners from "@/components/common/OurPartners";
 
 const Home = () => {
   return (
-    <section>
+    <div className="w-full h-full">
       <HomeBanner />
       <FeaturedProducts />
-    </section>
+      <Testimonials />
+      <TestimonialCard />
+      <HowInsuranceWork />
+      <OurPartners />
+    </div>
   );
 };
 

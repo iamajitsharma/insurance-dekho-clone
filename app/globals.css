@@ -51,7 +51,7 @@
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
+  --primary: oklch(0.65 0.2086 21.29);
   --primary-foreground: oklch(0.985 0 0);
   --secondary: oklch(0.97 0 0);
   --secondary-foreground: oklch(0.205 0 0);
@@ -120,38 +120,38 @@
   body {
     @apply bg-background text-foreground;
   }
+
+  .page-section {
+    margin: 60px 0;
+  }
 }
 
 .slick-dots {
+  bottom: 10px;
   display: flex !important;
   justify-content: center;
-  align-items: center;
-  bottom: 10px; /* adjust spacing if needed */
+  gap: 0px;
 }
 
-/* Default dot style */
 .slick-dots li {
-  margin: 0 3px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  width: 8px !important;
 }
 
 /* Default dot style */
-.slick-dots li button:before {
-  font-size: 12px;
-  color: #bbb; /* default dot color */
-  opacity: 1; /* ensure visibility */
+.slick-dots li .custom-dot {
+  width: 6px;
+  height: 6px;
+  background: #d9d9d9;
+  border-radius: 50%;
+  cursor: pointer;
+  margin: 0 !important;
 }
 
 /* Active dot style */
-.slick-dots li.slick-active button:before {
-  color: #191cdd; /* active dot color */
-  width: 20px; /* adjust width */
-  height: 8px; /* optional height */
-  border-radius: 4px; /* optional rounded edges */
-  background-color: #191cdd;
-  content: "";
-  display: inline-block;
-  margin-top: 0.2rem;
+.slick-dots li.slick-active .custom-dot {
+  background: #007fff;
+  width: 14px;
+
+  border-radius: 4px;
+  margin: 0 !important;
 }

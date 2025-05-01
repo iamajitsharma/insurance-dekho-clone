@@ -14,7 +14,7 @@ const FooterQuickLink: React.FC<FooterMenuProps> = ({ title, links }) => {
       <div className="py-2">
         <ul className="flex flex-col gap-1.5">
           {links.map((item, idx) => (
-            <li key={idx} className="text-sm text-neutral-500 hover:underline">
+            <li key={idx} className="text-xs text-gray-700 hover:underline">
               {item}
             </li>
           ))}

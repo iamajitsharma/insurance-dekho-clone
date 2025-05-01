@@ -82,7 +82,7 @@ const generalCategories = [
 const Footer = () => {
   return (
     <footer className="bg-white">
-      <div className="px-16 py-6 border-y border-gray-400">
+      <div className="px-16 py-6 border-y border-gray-300">
         <div className="flex py-6 ">
           <div className="w-3/12">
             <FooterSocialFollow />
