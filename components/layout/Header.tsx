@@ -9,7 +9,6 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "../ui/dropdown-menu";
-import { ChevronDown } from "lucide-react";
 import Link from "next/link";
 import { ScrollArea } from "../ui/scroll-area";
 
@@ -108,42 +107,42 @@ const Header = () => {
         {
           id: uuid(),
           title: "Insurance Advisors in New Delhi",
-          url: "/advisors/new-delhi",
+          url: "/insurance-advisors/new-delhi",
         },
         {
           id: uuid(),
           title: "Insurance Advisors in New Faridabad",
-          url: "/advisors/new-faridabad",
+          url: "/insurance-advisors/new-faridabad",
         },
         {
           id: uuid(),
           title: "Insurance Advisors in New Ghaziabad",
-          url: "/advisors/new-ghaziabad",
+          url: "/insurance-advisors/new-ghaziabad",
         },
         {
           id: uuid(),
           title: "Insurance Advisors in New Noida",
-          url: "/advisors/new-noida",
+          url: "/insurance-advisors/new-noida",
         },
         {
           id: uuid(),
           title: "Insurance Advisors in New Kolkata",
-          url: "/advisors/new-kolkata",
+          url: "/insurance-advisors/new-kolkata",
         },
         {
           id: uuid(),
           title: "Insurance Advisors in New Hyderabad",
-          url: "/advisors/new-hyderabad",
+          url: "/insurance-advisors/new-hyderabad",
         },
         {
           id: uuid(),
           title: "Insurance Advisors in New Lucknow",
-          url: "/advisors/new-lucknow",
+          url: "/insurance-advisors/new-lucknow",
         },
         {
           id: uuid(),
           title: "Insurance Advisors in New Mumbai",
-          url: "/advisors/new-mumbai",
+          url: "/insurance-advisors/new-mumbai",
         },
       ],
     },
@@ -275,7 +274,7 @@ const Header = () => {
                       className="text-[15px] font-semibold text-gray-700 focus-visible:ring-0 cursor-pointer"
                     >
                       {item.title}
-                      {/* <ChevronDown size={18} className="ml-1" /> */}
+
                       <Image
                         src="/icon/downarrow.svg"
                         alt="down arrow"

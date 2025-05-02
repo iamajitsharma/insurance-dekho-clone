@@ -4,7 +4,7 @@ import Footer from "@/components/layout/Footer";
 
 const PageLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="flex flex-col bg-slate-50">
+    <div className="flex flex-col  bg-slate-50">
       <Header />
       <main className="flex-1">{children}</main>
       <Footer />
