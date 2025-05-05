@@ -3,6 +3,7 @@ import { Poppins } from "next/font/google";
 import "./globals.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import ClientWrapper from "@/components/layout/ClientWrapper";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -22,7 +23,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${poppins.variable} `}>{children}</body>
+      <ClientWrapper>
+        <body className={`${poppins.variable} `}>{children}</body>
+      </ClientWrapper>
     </html>
   );
 }
