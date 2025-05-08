@@ -7,7 +7,7 @@
       "experience": "7 years",
       "location": "Delhi",
       "category": "Life Insurance",
-      "rating": "4.3"
+      "rating": "3.3"
     },
     {
       "id": "339c7e12-efa4-42d9-ad74-d116be2a39fe",
@@ -899,10 +899,6 @@
       "location": "Noida",
       "category": "Health Insurance",
       "rating": "4.0"
-    },
-    {
-      "id": "cc41",
-      "location": "Noida"
     }
   ]
 }

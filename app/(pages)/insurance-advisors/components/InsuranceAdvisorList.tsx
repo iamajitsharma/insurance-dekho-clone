@@ -7,7 +7,7 @@ const InsuranceAdvisorList = ({
   isLoading,
 }: {
   advisors: AdvisorType[];
-  isLoading: boolean;
+  isLoading?: boolean;
 }) => {
   console.log(advisors, "Inside Insurance Advisor LIst");
 

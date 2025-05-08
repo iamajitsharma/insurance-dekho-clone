@@ -23,7 +23,7 @@ export default async function Page({
 }) {
   const { location } = await params;
 
-  // const advisors: AdvisorType[] = await getAdvisorsByLocation(location);
+  const advisors: AdvisorType[] = await getAdvisorsByLocation(location);
 
-  return <Index location={location} />;
+  return <Index data={advisors} />;
 }

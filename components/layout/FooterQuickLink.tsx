@@ -9,7 +9,7 @@ const FooterQuickLink: React.FC<FooterMenuProps> = ({ title, links }) => {
   return (
     <div>
       <div>
-        <h5 className="font-semibold text-sm">{title}</h5>
+        <h5 className="font-semibold text-sm text-gray-700">{title}</h5>
       </div>
       <div className="py-2">
         <ul className="flex flex-col gap-1.5">
