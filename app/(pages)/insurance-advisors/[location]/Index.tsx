@@ -48,7 +48,7 @@ export default function Index({ data }: { data: AdvisorType[] }) {
   useEffect(() => {
     if (filterItems) {
       console.log("Fillter Applied");
-      const filteredAdvisors = advisorsData.filter(
+      const filteredAdvisors = data.filter(
         (advisor: AdvisorType) =>
           advisor.category.trim().toLowerCase() ===
             filterItems.expertise.trim().toLowerCase() ||
