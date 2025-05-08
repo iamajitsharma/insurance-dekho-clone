@@ -61,7 +61,7 @@ export default function Index({ data }: { data: AdvisorType[] }) {
     } else {
       setAdvisorsData(data);
     }
-  }, [filterItems]);
+  }, [data, filterItems]);
 
   console.log(advisorsData, "Advisor List");
 
