@@ -59,9 +59,9 @@ const InsuranceAdvisorList = ({
                   size="sm"
                   className="bg-gray-200 font-normal text-xs"
                 >
-                  Health Insurnace
+                  {item.category}
                 </Button>
-                <Button
+                {/* <Button
                   variant={"secondary"}
                   size="sm"
                   className="bg-gray-200 font-normal text-xs"
@@ -74,7 +74,7 @@ const InsuranceAdvisorList = ({
                   className="bg-gray-200 font-normal text-xs"
                 >
                   Bike Insurnace
-                </Button>
+                </Button> */}
               </div>
             </div>
             <div>

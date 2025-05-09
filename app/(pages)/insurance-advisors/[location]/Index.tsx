@@ -3,28 +3,10 @@ import Container from "@/components/common/Container";
 import ProductTitle from "../components/ProductTitle";
 import InsuranceAdvisorList from "../components/InsuranceAdvisorList";
 import { AdvisorType } from "@/lib/types";
-import { useQuery } from "@tanstack/react-query";
 import { useParams } from "next/navigation";
 import AdvisorsFilters from "../components/AdvisorsFilters";
 import { useAppSelector } from "@/store";
 import { useEffect, useState } from "react";
-
-const getAdvisorsByLocation = async (location: string) => {
-  // Get all advisors
-  const response = await fetch("http://localhost:4000/advisors");
-  const data = await response.json();
-
-  // Applied filter based on the location
-  const advisors = data.filter(
-    (advisor: AdvisorType) =>
-      advisor.location.trim().toLowerCase() === location.trim().toLowerCase()
-  );
-
-  console.log(advisors, "Ins");
-
-  // Return filtered advisors based on the selected location
-  return advisors;
-};
 
 export default function Index({ data }: { data: AdvisorType[] }) {
   const [advisorsData, setAdvisorsData] = useState<AdvisorType[]>([]);
@@ -34,36 +16,42 @@ export default function Index({ data }: { data: AdvisorType[] }) {
   const { location } = useParams();
   console.log(location);
 
-  // const { data: advisors = [], isLoading: isAdvisorsLoading } = useQuery({
-  //   queryKey: ["advisors"],
-  //   queryFn: async () => {
-  //     if (location) {
-  //       return await getAdvisorsByLocation(location);
-  //     } else {
-  //       return [];
-  //     }
-  //   },
-  // });
+  const { city, experience, expertise, rating } = filterItems;
 
   useEffect(() => {
-    if (filterItems) {
-      console.log("Fillter Applied");
-      const filteredAdvisors = data.filter(
-        (advisor: AdvisorType) =>
-          advisor.category.trim().toLowerCase() ===
-            filterItems.expertise.trim().toLowerCase() ||
-          Number(advisor.rating) >= 4 ||
-          advisor.experience.trim().toLowerCase() ===
-            filterItems.experience.trim().toLowerCase()
-      );
+    if (experience || expertise || city || rating) {
+      const filteredAdvisors = data.filter((advisor: AdvisorType) => {
+        const matchesExpertise = expertise
+          ? advisor.category.includes(expertise)
+          : true;
 
+        const matchesExperience = experience
+          ? advisor.experience.includes(experience)
+          : true;
+        // const matchesCity = city ? advisor.city === city : true;
+        const matchesRating = (() => {
+          if (rating === "4.6") {
+            return Number(advisor.rating) > 4.5;
+          } else if (rating === "4.5") {
+            return Number(advisor.rating) > 4 && Number(advisor.rating) <= 4.5;
+          } else if (rating === "4") {
+            return Number(advisor.rating) >= 3 && Number(advisor.rating) <= 4;
+          } else if (rating === "3") {
+            return Number(advisor.rating) < 3;
+          } else {
+            return true;
+          }
+        })();
+
+        return matchesExpertise && matchesExperience && matchesRating;
+      });
+
+      console.log("Filtered Advisors", filteredAdvisors);
       setAdvisorsData(filteredAdvisors);
     } else {
       setAdvisorsData(data);
     }
-  }, [data, filterItems]);
-
-  console.log(advisorsData, "Advisor List");
+  }, [data, expertise, experience, city, rating]);
 
   return (
     <section className="w-full ">
