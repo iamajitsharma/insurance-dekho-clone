@@ -1,10 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { useDispatch, useSelector } from "react-redux";
 import advisorReducer from "./slices/advisorSlice";
+import commonReducer from "./slices/commonSlice";
 
 const store = configureStore({
   reducer: {
     advisor: advisorReducer,
+    common: commonReducer,
   },
 });
 

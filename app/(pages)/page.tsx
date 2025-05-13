@@ -5,6 +5,7 @@ import Testimonials, {
 } from "@/components/common/Testimonials";
 import HowInsuranceWork from "./components/HowInsuranceWork";
 import OurPartners from "@/components/common/OurPartners";
+import LoginModal from "@/components/common/LoginModal";
 
 const Home = () => {
   return (

@@ -11,12 +11,16 @@ import {
 } from "../ui/dropdown-menu";
 import Link from "next/link";
 import { ScrollArea } from "../ui/scroll-area";
+import { openLogin } from "@/store/slices/commonSlice";
+import { useDispatch } from "react-redux";
+import { useRouter } from "next/navigation";
 
 interface MenuItemProps {
   id: string;
   title: string;
   url: string;
   icon?: string;
+  onClick?: (link: string) => void;
 }
 
 interface NavLinksProps extends MenuItemProps {
@@ -25,6 +29,9 @@ interface NavLinksProps extends MenuItemProps {
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const dispatch = useDispatch();
+
+  const router = useRouter();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -36,12 +43,28 @@ const Header = () => {
       }
     };
 
+    // Add scroll event listener
     window.addEventListener("scroll", handleScroll);
 
+    // Clean up function
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
   });
+
+  const isLoggedIn = false;
+
+  const handleRouteLogin = (link: string) => {
+    if (isLoggedIn) {
+      router.push(link);
+    } else {
+      dispatch(openLogin({ isLoggedIn: true }));
+    }
+  };
+
+  const handleLogin = () => {
+    dispatch(openLogin({ isLoggedIn: true }));
+  };
 
   const navLinks: NavLinksProps[] = [
     {
@@ -150,39 +173,44 @@ const Header = () => {
       id: uuid(),
       title: "Renew",
       url: "/renew",
+      onClick: handleLogin,
       children: [],
     },
-    {
-      id: uuid(),
-      title: "Support",
-      url: "/support",
-      children: [
-        {
-          id: uuid(),
-          title: "Renew Policy",
-          url: "/support/renew",
-          icon: "/icon/v2_icon_policyrenew.svg",
-        },
-        {
-          id: uuid(),
-          title: "Track Policy",
-          url: "/support/track",
-          icon: "/icon/v2_icon_policytrack.svg",
-        },
-        {
-          id: uuid(),
-          title: "Download Policy",
-          url: "/support/download",
-          icon: "/icon/v2_icon_policydownload.svg",
-        },
-        {
-          id: uuid(),
-          title: "Call Us",
-          url: "/support/call",
-          icon: "/icon/v2_call-green.svg",
-        },
-      ],
-    },
+    // {
+    //   id: uuid(),
+    //   title: "Support",
+    //   url: "/support",
+
+    //   children: [
+    //     {
+    //       id: uuid(),
+    //       title: "Renew Policy",
+    //       url: "/support/renew",
+    //       icon: "/icon/v2_icon_policyrenew.svg",
+    //       onClick: handleRouteLogin,
+    //     },
+    //     {
+    //       id: uuid(),
+    //       title: "Track Policy",
+    //       url: "/support/track",
+    //       icon: "/icon/v2_icon_policytrack.svg",
+    //       onClick: handleRouteLogin,
+    //     },
+    //     {
+    //       id: uuid(),
+    //       title: "Download Policy",
+    //       url: "/support/download",
+    //       icon: "/icon/v2_icon_policydownload.svg",
+    //       onClick: handleRouteLogin,
+    //     },
+    //     {
+    //       id: uuid(),
+    //       title: "Call Us",
+    //       url: "/support/call",
+    //       icon: "/icon/v2_call-green.svg",
+    //     },
+    //   ],
+    // },
     {
       id: uuid(),
       title: "NEWS",
@@ -295,23 +323,7 @@ const Header = () => {
                             href={child.url}
                             className="cursor-pointer text-sm"
                           >
-                            {child.icon && (
-                              <Image
-                                src={child.icon}
-                                alt={child.title}
-                                width={20}
-                                height={20}
-                                className="mr-2"
-                              />
-                            )}
-                            {child.title === "Call Us" ? (
-                              <div>
-                                <span className="text-xs">{child.title}</span>
-                                <p>75111175111</p>
-                              </div>
-                            ) : (
-                              child.title
-                            )}
+                            {child.title}
                           </Link>
                         </DropdownMenuItem>
                       ))}
@@ -321,14 +333,19 @@ const Header = () => {
               );
             } else {
               return (
-                <Link key={item.id} href={item.url}>
+                <div
+                  key={item.id}
+                  onClick={() => {
+                    handleRouteLogin(item.url);
+                  }}
+                >
                   <Button
                     variant="ghost"
                     className="text-[15px] font-semibold text-gray-700"
                   >
                     {item.title}
                   </Button>
-                </Link>
+                </div>
               );
             }
           })}
@@ -336,7 +353,9 @@ const Header = () => {
 
         <div className="flex items-center gap-3">
           <p className="text-[10px] text-gray-700">Track & Policy Download</p>
-          <Button size={"sm"}>Login</Button>
+          <Button size={"sm"} onClick={handleLogin} className="cursor-pointer">
+            Login
+          </Button>
         </div>
       </div>
     </header>

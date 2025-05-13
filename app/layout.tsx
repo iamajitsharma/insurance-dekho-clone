@@ -4,6 +4,7 @@ import "./globals.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import ClientWrapper from "@/components/layout/ClientWrapper";
+import LoginModal from "@/components/common/LoginModal";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -24,7 +25,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <ClientWrapper>
-        <body className={`${poppins.variable} `}>{children}</body>
+        <body className={`${poppins.variable} `}>
+          {children}
+          <LoginModal />
+        </body>
       </ClientWrapper>
     </html>
   );
