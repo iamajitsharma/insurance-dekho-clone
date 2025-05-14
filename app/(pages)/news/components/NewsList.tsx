@@ -1,20 +1,28 @@
 import React from "react";
 import Image from "next/image";
 
-interface NewsProps {}
+interface NewsProps {
+  id: string;
+  title: string;
+  description: string;
+  image: string;
+  publisher: string;
+  date: string;
+  category: string;
+}
 
-const NewsList = () => {
+const NewsList = ({ news }: { news: NewsProps[] }) => {
   return (
     <div>
-      {[...Array(10)].map((_, index) => (
+      {news.map((newsItem: NewsProps) => (
         <div
-          className="flex gap-4 h-48 rounded-lg overflow-hidden border my-5"
-          key={index}
+          className="flex gap-4 h-52 rounded-lg overflow-hidden border my-5"
+          key={newsItem.id}
         >
-          <div className="h-48 w-1/3">
+          <div className="h-52 w-1/3">
             <Image
-              src="/dummy-news.jpg"
-              alt="new items"
+              src={newsItem.image || "/dummy-news.jpg"}
+              alt={newsItem.title}
               width={200}
               height={200}
               className="object-fill w-full h-full"
@@ -22,23 +30,16 @@ const NewsList = () => {
           </div>
           <div className="flex-1 py-4">
             <div className="text-gray-700 flex flex-col gap-3">
-              <h2 className="text-xl font-semibold ">
-                Union Budget 2025: Key Highlights
-              </h2>
-              <p className="text-sm ">
-                Major announcements and highlights of the 2025 Union Budget.
-                From zero income tax on earnings up to ₹12lakhs and revised tax
-                slabs to increased FDI in insurance, boost in support for
-                agriculture and i...
-              </p>
+              <h2 className="text-xl font-semibold ">{newsItem.title}</h2>
+              <p className="text-sm line-clamp-4">{newsItem.description}</p>
 
               <div className="flex items-center gap-4">
-                <div>
-                  <span>MS</span>
+                <div className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-400">
+                  <span>{newsItem.publisher.substring(0, 1)}</span>
                 </div>
                 <div className="text-sm ">
-                  <p className="font-medium">Manwendra Singh</p>
-                  <p className="text-gray-600 text-xs">02 Feb 2025</p>
+                  <p className="font-medium">{newsItem.publisher}</p>
+                  <p className="text-gray-600 text-xs">{newsItem.date}</p>
                 </div>
               </div>
             </div>

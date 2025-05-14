@@ -1,9 +1,18 @@
 import Container from "@/components/common/Container";
-import NewsList from "./components/NewsList";
-import FreeQuote from "./components/FreeQuote";
-import CalculatorList from "./components/CalculatorList";
+import NewsList from "../components/NewsList";
+import FreeQuote from "../components/FreeQuote";
 
-const getNews = async () => {
+interface NewsProps {
+  id: string;
+  title: string;
+  description: string;
+  image: string;
+  publisher: string;
+  date: string;
+  category: string;
+}
+
+const getNews = async (category: string) => {
   const response = await fetch("http://localhost:4000/news", {
     method: "GET",
     headers: {
@@ -15,13 +24,22 @@ const getNews = async () => {
     throw new Error("Failed to fetch news");
   }
 
-  return response.json();
+  const newsItems = await response.json();
+
+  const filteredNews = newsItems.filter(
+    (news: NewsProps) => news.category === category
+  );
+
+  return filteredNews;
 };
 
-const News = async () => {
-  const newsItems = await getNews();
-
-  console.log(newsItems, "News Items");
+const NewsCategory = async ({
+  params,
+}: {
+  params: Promise<{ category: string }>;
+}) => {
+  const { category } = await params;
+  const newsItems = await getNews(category);
   return (
     <section className="w-full bg-white ">
       <Container className="lg:not-even:px-20">
@@ -35,8 +53,8 @@ const News = async () => {
           <div className="w-4/12 p-4">
             <div className="flex flex-col gap-5">
               <FreeQuote />
-              <CalculatorList />
-              <FreeQuote />
+              {/* <CalculatorList />
+              <FreeQuote /> */}
             </div>
           </div>
         </div>
@@ -45,4 +63,4 @@ const News = async () => {
   );
 };
 
-export default News;
+export default NewsCategory;

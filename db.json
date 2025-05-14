@@ -6,7 +6,8 @@
       "description": "With the new updates and introduction of the new Special Surrender Value (SSV) regulations, life insurance policy holders will now get more money refunded as compared to before 1st of October 2024.",
       "image": "/dummy-news.jpg",
       "publisher": "Kritika Singh",
-      "date": "09 Oct 2024"
+      "date": "09 Oct 2024",
+      "category": "life-insurance"
     },
     {
       "id": "4ddcdf85-effc-4687-ae4b-5709af96b69e",
@@ -14,7 +15,8 @@
       "description": "The finance ministry is reviewing GST rates on daily consumer goods and may cut them to ease inflationary pressure.",
       "image": "/dummy-news.jpg",
       "publisher": "Arjun Mehta",
-      "date": "11 Oct 2024"
+      "date": "11 Oct 2024",
+      "category": "business"
     },
     {
       "id": "2b6b2898-5609-484b-8f2f-8366eae5f346",
@@ -22,7 +24,8 @@
       "description": "India’s competition commission announces new regulations aimed at increasing transparency and fairness in the digital marketplace.",
       "image": "/dummy-news.jpg",
       "publisher": "Divya Kapoor",
-      "date": "12 Oct 2024"
+      "date": "12 Oct 2024",
+      "category": "business"
     },
     {
       "id": "c51ff22d-a3a7-44ea-9091-7b2cc960fd3f",
@@ -30,7 +33,8 @@
       "description": "The MMRDA confirms that the final leg of construction is underway and the line is expected to open by March 2025.",
       "image": "/dummy-news.jpg",
       "publisher": "Ravi Joshi",
-      "date": "13 Oct 2024"
+      "date": "13 Oct 2024",
+      "category": "business"
     },
     {
       "id": "ec84ec8b-6fe6-42ad-8dfa-29aa3fb91062",
@@ -38,7 +42,8 @@
       "description": "AgniKul Cosmos launches 25 micro-satellites into orbit with a single rocket, setting a national record.",
       "image": "/dummy-news.jpg",
       "publisher": "Sneha Iyer",
-      "date": "14 Oct 2024"
+      "date": "14 Oct 2024",
+      "category": "investment"
     },
     {
       "id": "d5c49502-690a-4b99-bee7-8050274f0357",
@@ -46,7 +51,8 @@
       "description": "The Reserve Bank of India has released a new circular banning aggressive recovery tactics used by digital loan platforms.",
       "image": "/dummy-news.jpg",
       "publisher": "Amit Chawla",
-      "date": "15 Oct 2024"
+      "date": "15 Oct 2024",
+      "category": "business"
     },
     {
       "id": "c6a22fe9-9e3f-4aef-9a9f-9f6a998e5b84",
@@ -54,7 +60,8 @@
       "description": "With stubble burning season beginning, AQI levels in Delhi have started to reach the 'very poor' category.",
       "image": "/dummy-news.jpg",
       "publisher": "Pooja Sharma",
-      "date": "16 Oct 2024"
+      "date": "16 Oct 2024",
+      "category": "business"
     },
     {
       "id": "393e6506-1768-4a2e-990b-3df58efd074d",
@@ -62,7 +69,8 @@
       "description": "The countries agree to collaborate on mining and processing rare earth metals vital for electronics and EVs.",
       "image": "/dummy-news.jpg",
       "publisher": "Raj Malhotra",
-      "date": "17 Oct 2024"
+      "date": "17 Oct 2024",
+      "category": "business"
     },
     {
       "id": "c7fa3d18-9842-4b64-9570-06d9e08a4f49",
@@ -70,7 +78,8 @@
       "description": "ISRO confirms it is on track to send astronauts into space with the Gaganyaan mission next year.",
       "image": "/dummy-news.jpg",
       "publisher": "Neha Verma",
-      "date": "18 Oct 2024"
+      "date": "18 Oct 2024",
+      "category": "investment"
     },
     {
       "id": "7037a66f-9067-4d73-a974-3d164c56ba70",
@@ -78,7 +87,8 @@
       "description": "The National Statistical Office has revised India's GDP forecast upward based on robust manufacturing data.",
       "image": "/dummy-news.jpg",
       "publisher": "Siddharth Jain",
-      "date": "19 Oct 2024"
+      "date": "19 Oct 2024",
+      "category": "business"
     },
     {
       "id": "aab504f1-9f10-4710-afac-03d00a29b7ae",
@@ -86,7 +96,8 @@
       "description": "A new health regulation requires Swiggy, Zomato, and others to show nutritional info for all menu items.",
       "image": "/dummy-news.jpg",
       "publisher": "Megha Bhatt",
-      "date": "20 Oct 2024"
+      "date": "20 Oct 2024",
+      "category": "business"
     },
     {
       "id": "8e42a136-d85f-4961-b151-963a327cab45",
@@ -94,7 +105,8 @@
       "description": "The Tamil Nadu government orders school closures for two days due to flooding in several areas.",
       "image": "/dummy-news.jpg",
       "publisher": "Kiran Nair",
-      "date": "21 Oct 2024"
+      "date": "21 Oct 2024",
+      "category": "business"
     },
     {
       "id": "54de1883-c83f-4ed9-854f-4e13b6b963f3",
@@ -102,7 +114,8 @@
       "description": "Authorities are probing a large data breach that reportedly affected thousands of customer accounts.",
       "image": "/dummy-news.jpg",
       "publisher": "Ananya Desai",
-      "date": "22 Oct 2024"
+      "date": "22 Oct 2024",
+      "category": "business"
     },
     {
       "id": "280b8d50-0459-469d-807e-6bcdebb00ab3",
@@ -110,7 +123,8 @@
       "description": "The government rolls out a multilingual AI assistant to help farmers with crop advice and market prices.",
       "image": "/dummy-news.jpg",
       "publisher": "Rohit Sen",
-      "date": "23 Oct 2024"
+      "date": "23 Oct 2024",
+      "category": "investment"
     },
     {
       "id": "9fee45bc-17b9-40d9-b7fb-8a37b7a401e1",
@@ -118,7 +132,8 @@
       "description": "Brent crude hits a six-month high, sparking concerns about inflation in import-dependent countries.",
       "image": "/dummy-news.jpg",
       "publisher": "Sheetal Rao",
-      "date": "24 Oct 2024"
+      "date": "24 Oct 2024",
+      "category": "business"
     },
     {
       "id": "4aa02a6a-9a5a-4e7d-ac70-cd956a3832ac",
@@ -126,7 +141,8 @@
       "description": "After weeks of hearings, the apex court reserves its verdict on the legality of anonymous political funding.",
       "image": "/dummy-news.jpg",
       "publisher": "Vikram Yadav",
-      "date": "25 Oct 2024"
+      "date": "25 Oct 2024",
+      "category": "business"
     },
     {
       "id": "4004a042-71f1-46d6-a946-bd33a1eb9c20",
@@ -134,7 +150,8 @@
       "description": "A Bengaluru-based clean energy firm secures funding to accelerate its green hydrogen production process.",
       "image": "/dummy-news.jpg",
       "publisher": "Tanya D’Souza",
-      "date": "26 Oct 2024"
+      "date": "26 Oct 2024",
+      "category": "investment"
     },
     {
       "id": "ef51e512-d39c-4dc8-9a38-10dbff10e629",
@@ -142,7 +159,8 @@
       "description": "The court seeks detailed data on inmate population and infrastructure from all state governments.",
       "image": "/dummy-news.jpg",
       "publisher": "Nikhil Shah",
-      "date": "27 Oct 2024"
+      "date": "27 Oct 2024",
+      "category": "business"
     },
     {
       "id": "7a5dd427-8649-4d25-836c-1594e102e6f5",
@@ -150,7 +168,8 @@
       "description": "Electric two-wheelers and cars see record growth as incentives and charging infrastructure expand.",
       "image": "/dummy-news.jpg",
       "publisher": "Lakshmi Rao",
-      "date": "28 Oct 2024"
+      "date": "28 Oct 2024",
+      "category": "investment"
     },
     {
       "id": "84be2246-f97b-453e-86ab-0d1cde5aff04",
@@ -158,7 +177,8 @@
       "description": "The Ministry of Education unveils plans to make computer science foundational for middle school students.",
       "image": "/dummy-news.jpg",
       "publisher": "Deepak Ghosh",
-      "date": "29 Oct 2024"
+      "date": "29 Oct 2024",
+      "category": "business"
     }
   ],
   "advisors": [

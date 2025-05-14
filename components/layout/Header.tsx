@@ -237,7 +237,7 @@ const Header = () => {
         {
           id: uuid(),
           title: "Life News",
-          url: "/news/life",
+          url: "/news/life-insurance",
           icon: "/icon/life_insurance.svg",
         },
         {
